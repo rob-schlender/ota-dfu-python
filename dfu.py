@@ -168,6 +168,10 @@ def main():
         # Disconnect from peer device if not done already and clean up.
         ble_dfu.disconnect()
 
+        # If Unpacker for zipfile used then delete Unpacker
+        if unpacker != None:
+           unpacker.delete()
+
     except Exception as e:
         # print traceback.format_exc()
         print("Exception at line {}: {}".format(sys.exc_info()[2].tb_lineno, e))
@@ -175,10 +179,6 @@ def main():
 
     except:
         pass
-
-    # If Unpacker for zipfile used then delete Unpacker
-    if unpacker != None:
-       unpacker.delete()
 
     if options.verbose:
         print("DFU Server done")
