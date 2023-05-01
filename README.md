@@ -7,7 +7,7 @@ My own contribution is little more than a brute force conversion to
 python3. It is sparsely tested so there are likely to be a few 
 remaining bytes versus string bugs remaining in the places I didn't test
 . I used it primarily as part of
-[wasp-os](https://github.com/daniel-thompson/wasp-os) as a way to 
+[wasp-os](https://github.com/wasp-os/wasp-os) as a way to
 deliver OTA updates to nRF52-based smart watches, especially the
 [Pine64 PineTime](https://www.pine64.org/pinetime/).
 
