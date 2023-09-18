@@ -198,7 +198,7 @@ class NrfBleDfuController(object, metaclass=ABCMeta):
                 #
                 self.ble_conn.sendline('')
                 string = self.ble_conn.before
-                if '[   ]' in string:
+                if b'[   ]' in string:
                     print('Connection lost! ')
                     raise Exception('Connection Lost')
                 return None
