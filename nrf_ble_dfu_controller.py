@@ -207,7 +207,7 @@ class NrfBleDfuController(object, metaclass=ABCMeta):
                 if b'[   ]' in string:
                     print('Connection lost! ')
                     raise Exception('Connection Lost')
-                 else:
+                else:
                     # the notification might have been sent a bit too
                     # early, reading the log to make sure:
                     with open(backlogger.name, "rb") as f:
