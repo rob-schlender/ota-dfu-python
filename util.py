@@ -29,7 +29,8 @@ def array_to_hex_string(arr):
     return hex_str
 
 def crc32_unsigned(bytestring):
-    return binascii.crc32(bytestring.encode('UTF-8')) % (1 << 32)
+    byte_data = bytestring.tobytes()
+    return binascii.crc32(byte_data) 
 
 def mac_string_to_uint(mac):
     parts = list(re.match('(..):(..):(..):(..):(..):(..)', mac).groups())

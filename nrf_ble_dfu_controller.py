@@ -106,7 +106,7 @@ class NrfBleDfuController(object, metaclass=ABCMeta):
 
             self.image_size = len(self.bin_array)
             print("Binary imge size: %d" % self.image_size)
-            print("Binary CRC32: %d" % crc32_unsigned(array_to_hex_string(self.bin_array)))
+            print("Binary CRC32: %d" % crc32_unsigned((self.bin_array)))
 
             return
 

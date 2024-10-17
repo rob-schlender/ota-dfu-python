@@ -273,15 +273,15 @@ class BleDfuControllerSecure(NrfBleDfuController):
         if offset != self.image_size:
             if offset == 0 or offset >= obj_max_size or crc32 != crc32_unsigned(self.bin_array[0:offset]):
                 # Create Data Object
-                size = min(obj_max_size, self.image_size - offset)
+                size = int(min(obj_max_size, self.image_size - offset))
                 self._dfu_send_command(Procedures.CREATE, [Procedures.PARAM_DATA] + uint32_to_bytes_le(size))
                 self._wait_and_parse_notify()
 
             segment_count = 0
             segment_total = int(math.ceil(min(obj_max_size, self.image_size-offset)/float(self.pkt_payload_size)))
 
-            segment_begin = offset
-            segment_end = min(offset+obj_max_size, self.image_size)
+            segment_begin = int(offset)
+            segment_end = int(min(offset+obj_max_size, self.image_size))
 
             for i in range(segment_begin, segment_end, self.pkt_payload_size):
                 num_bytes = min(self.pkt_payload_size, segment_end - i)
